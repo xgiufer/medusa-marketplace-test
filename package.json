@@ -6,10 +6,12 @@
   "license": "MIT",
   "scripts": {
     "seed": "medusa seed -f ./data/seed.json",
-    "build": "rm -rf dist && tsc",
-    "start_node": "npm run build && node dist/src/main.js",
-    "start" : "medusa develop"
-
+    "start_medusa" : "medusa develop",
+    "serve": "node dist/src/main.js",
+    "start": "npm run build && node dist/src/main.js",
+    "heroku-postbuild": "medusa migrations run",
+    "prepare": "npm run build",
+    "build": "rm -rf dist && tsc"
   },
   "dependencies": {
     "@medusajs/medusa": "^1.3.3",
